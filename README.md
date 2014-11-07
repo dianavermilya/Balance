@@ -3,7 +3,7 @@ Balance
 
 To setup and run the app on Linux:
 
-1. npm:
+1. npm
   * To check if you have npm installed, run
     <code>npm -v</code>   
   (expect to see a version number if npm is installed.
