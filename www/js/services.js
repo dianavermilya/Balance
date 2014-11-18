@@ -16,7 +16,6 @@ angular.module('starter.services', [])
     { id: 7, name: 'Peanut butter clif bar' },
     { id: 8, name: 'Vanilla Protein Shake' },
     { id: 9, name: 'Tofu' }
-
   ];
 
   return {
@@ -28,13 +27,12 @@ angular.module('starter.services', [])
       return groceryItems[itemId];
     }
   }
-});
+})
 
 
 .factory('GroceryList', function() {
 
   var groceryList = [0,1,3,6,9];
-  ];
 
   return {
     all: function() {

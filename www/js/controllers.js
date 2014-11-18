@@ -6,15 +6,17 @@ angular.module('starter.controllers', [])
 .controller('GroceryListCtrl', function($scope, GroceryList, GroceryItems) {
   var groceryListIndexes = GroceryList.all();
   var groceryItems = GroceryItems.all();
-  var groceryList = {};
+  console.log("grocery items", groceryItems);
+  var groceryList = [];
   for (var i=0;i<groceryListIndexes.length; i++){
-  	groceryList.push(groceryItems[groceryListIndexes]);
+  	groceryList.push(groceryItems[groceryListIndexes[i]]);
   };
-});
+  $scope.groceryList = groceryList;
+})
 
 .controller('ItemDetailCtrl', function($scope, $stateParams, GroceryList) {
   $scope.item = GroceryList.get($stateParams.itemId);
-});
+})
 
-.controller('AccountCtrl', function($scope) {
+.controller('SearchCtrl', function($scope) {
 });
