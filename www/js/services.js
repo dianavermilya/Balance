@@ -19,9 +19,6 @@ angular.module('starter.services', [])
     { id: 10, name: 'Muscle-Man Choco-Chug' },
     { id: 11, name: 'Power Powder' },
     { id: 12, name: 'Mocho-Man Munchy Bar' }
-
-
-
   ];
 
   return {
@@ -100,11 +97,63 @@ angular.module('starter.services', [])
       name: "Desserts",
       children: {}
     }
-  }
+  };
 
   return {
     all: function() {
       return tree;
     }
   }
+})
+
+.factory('NutritionTree', function() {
+  var tree = {
+    a: {
+      name: "Vitamin A",
+      items: [1]
+    },
+    b6: {
+      name: "Vitamin B6",
+      items: [1]
+    },
+    b12: {
+      name: "Vitamin B12",
+      items: [1]
+    },
+    c: {
+      name: "Vitamin C",
+      items: [1]
+    },
+    d: {
+      name: "Vitamin D",
+      items: [1]
+    },
+    e: {
+      name: "Vitamin E",
+      items: [1]
+    },
+    iron: {
+      name: "Iron",
+      items: [1]
+    },
+    K: {
+      name: "Potassium",
+      items: [1]
+    },
+    Mg: {
+      name: "Magnesium",
+      items: [1]
+    },
+    riboflavin: {
+      name: "Riboflavin",
+      items: [1]
+    }
+  };
+
+  return {
+    all: function() {
+      return tree;
+    }
+  }
+
 });

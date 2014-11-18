@@ -18,7 +18,8 @@ angular.module('starter.controllers', [])
   $scope.item = GroceryList.get($stateParams.itemId);
 })
 
-.controller('SearchCtrl', function($scope, FoodGroupTree) {
+.controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree) {
 	$scope.foodGroupTree = FoodGroupTree.all();
-	console.log(foodGroupTree)
+	$scope.nutritionTree = NutritionTree.all();
+	console.log($scope.nutritionTree)
 });
