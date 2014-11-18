@@ -32,7 +32,6 @@ angular.module('starter.services', [])
   }
 })
 
-
 .factory('GroceryList', function() {
 
   var groceryList = [0,1,3,6,9];
@@ -42,6 +41,46 @@ angular.module('starter.services', [])
       return groceryList;
     }
   }
+})
+
+.factory('Constraints', function() {
+  var constraints = {
+    lowSugar: {
+      name: "Low Sugar",
+      selected: false
+    },
+    noGluten: {
+      name: "No Gluten",
+      selected: false
+    },
+    noRedMeet: {
+      name: "No Red Meat",
+      selected: false
+    },
+    noDairy: {
+      name: "No Dairy",
+      selected: false
+    },
+    noNuts: {
+      name: "No Nuts",
+      selected: false
+    },
+    noFish: {
+      name: "No Fish",
+      selected: false
+    }
+  };
+
+  return {
+    all: function() {
+      return constraints;
+    },
+    get: function(key) {
+      return constraints[key];
+    }
+  }
+
+
 })
 
 .factory('FoodGroupTree', function() {
@@ -155,5 +194,4 @@ angular.module('starter.services', [])
       return tree;
     }
   }
-
 });
