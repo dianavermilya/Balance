@@ -15,7 +15,13 @@ angular.module('starter.services', [])
     { id: 6, name: 'lean chicken breast' },
     { id: 7, name: 'Peanut butter clif bar' },
     { id: 8, name: 'Vanilla Protein Shake' },
-    { id: 9, name: 'Tofu' }
+    { id: 9, name: 'Tofu' },
+    { id: 10, name: 'Muscle-Man Choco-Chug' },
+    { id: 11, name: 'Power Powder' },
+    { id: 12, name: 'Mocho-Man Munchy Bar' }
+
+
+
   ];
 
   return {
@@ -37,9 +43,68 @@ angular.module('starter.services', [])
   return {
     all: function() {
       return groceryList;
+    }
+  }
+})
+
+.factory('FoodGroupTree', function() {
+
+  var tree = {
+    fruits: {
+      name: "Fruits",
+      children: {}
     },
-    get: function(index) {
-      return groceryList[index];
+    veggies: {
+      name: "Veggies",
+      children: {}
+    },
+    grains: {
+      name: "Grains",
+      children: {}
+    },
+    proteins: {
+      name: "Proteins",
+      children: {
+        eggsAndDairy: {
+          name: "Eggs and Dairy",
+          children: {}
+        },
+        poultry: {
+          name: "Poultry",
+          children: {}
+        },
+        redMeat: {
+          name: "Red Meat",
+          children: {}
+        },
+        seafood: {
+          name: "Seafood",
+          children: {}
+        },
+        nutAndSeed: {
+          name: "Nut and Seed",
+          children: {}
+        },
+        supplement: {
+          name: "Supplement",
+          children: {},
+          items: [10,11,12]
+        }
+      }
+    },
+    dairy: {
+      name: "Dairy",
+      children: {}
+    },
+    desserts: {
+      name: "Desserts",
+      children: {}
+    }
+  }
+
+  return {
+    all: function() {
+      return tree;
     }
   }
 });

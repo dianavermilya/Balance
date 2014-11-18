@@ -18,5 +18,7 @@ angular.module('starter.controllers', [])
   $scope.item = GroceryList.get($stateParams.itemId);
 })
 
-.controller('SearchCtrl', function($scope) {
+.controller('SearchCtrl', function($scope, FoodGroupTree) {
+	$scope.foodGroupTree = FoodGroupTree.all();
+	console.log(foodGroupTree)
 });
