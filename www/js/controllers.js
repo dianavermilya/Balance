@@ -23,4 +23,10 @@ angular.module('starter.controllers', [])
 	$scope.nutritionTree = NutritionTree.all();
 	$scope.constraints = Constraints.all();
 	console.log("constraints", $scope.constraints);
+})
+
+.controller('MidSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints) {
+  var group = $stateParams.group;
+  $scope.group = group;
+  $scope.subFoodGroupTree = FoodGroupTree.all()[group].children;
 });
