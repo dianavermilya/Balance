@@ -85,11 +85,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })    
     .state('tab.search-lower', {
-      url: '/search/:group/:sub-group',
+      url: '/search/:group/:subGroup',
       views: {
         'tab-search': {
           templateUrl: 'templates/search-lower.html',
-          controller: 'SearchCtrl'
+          controller: 'LowerSearchCtrl'
         }
       }
     });

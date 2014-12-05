@@ -6,7 +6,6 @@ angular.module('starter.controllers', [])
 .controller('GroceryListCtrl', function($scope, GroceryList, GroceryItems) {
   var groceryListIndexes = GroceryList.all();
   var groceryItems = GroceryItems.all();
-  console.log("grocery items", groceryItems);
   var groceryList = [];
   for (var i=0;i<groceryListIndexes.length; i++){
   	groceryList.push(groceryItems[groceryListIndexes[i]]);
@@ -22,11 +21,21 @@ angular.module('starter.controllers', [])
 	$scope.foodGroupTree = FoodGroupTree.all();
 	$scope.nutritionTree = NutritionTree.all();
 	$scope.constraints = Constraints.all();
-	console.log("constraints", $scope.constraints);
 })
 
 .controller('MidSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints) {
-  var group = $stateParams.group;
-  $scope.group = group;
-  $scope.subFoodGroupTree = FoodGroupTree.all()[group].children;
+  $scope.groupId = $stateParams.group;
+  $scope.subFoodGroupTree = FoodGroupTree.all()[$scope.groupId].children;
+})
+
+.controller('LowerSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
+  var groceryItems = GroceryItems.all();
+  var groupId = $stateParams.group;
+  var subGroupId = $stateParams.subGroup;
+  var selectGroceryIndexes = FoodGroupTree.all()[groupId].children[subGroupId].items
+  var selectGroceryItems = [];
+  for (var i=0;i<selectGroceryIndexes.length; i++){
+    selectGroceryItems.push(groceryItems[selectGroceryIndexes[i]]);
+  };
+  $scope.selectGroceryItems = selectGroceryItems;
 });

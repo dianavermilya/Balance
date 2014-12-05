@@ -1,9 +1,9 @@
 <ion-view title="Search-Mid">
   <ion-content class="padding">
     <h1>Search-Mid</h1>
-    <h1> {{group}} </h1>
+    <h1> {{groupId}} </h1>
     <ion-list>
-      <ion-item ng-repeat="subGroup in subFoodGroupTree" type="item-text-wrap" href="#/tab/search/{{group}}/{{subGroup.id}}">
+      <ion-item ng-repeat="subGroup in subFoodGroupTree" type="item-text-wrap" href="#/tab/search/{{groupId}}/{{subGroup.id}}">
         {{subGroup.name}}
       </ion-item>
     </ion-list>
