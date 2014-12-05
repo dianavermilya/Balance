@@ -3,6 +3,9 @@
     <ion-list>
       <ion-item ng-repeat="item in groceryList" type="item-text-wrap" href="#/tab/item/{{item.id}}">
         {{item.name}}
+        <button class="button button-small" style="float:right">+</button>
+        <!--Add the text field with # in here-->
+        <button class="button button-small" style="float:right">-</button>
       </ion-item>
     </ion-list>
   </ion-content>
