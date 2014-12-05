@@ -1,0 +1,17 @@
+<!--Prototype html for browsing by category
+This might not be the right place for it
+Also will depend on the data structure, which is not yet done-->
+<ion-view title="Browsing">
+	<ion-content>
+	<!--N items per row, every n items make a new row, make a
+	 new column every item....-->
+	 <!--I think we need some javascript to turn the object into
+	 a list.... object.keys is what will do it-->
+	 <!--can use the $index item to determine number-->
+	 <ion-item ng-repeat="item in foodGroupList">
+	 	<div class="row" ng-if={{$index%4 == 0}}>
+	 		<div class="col"></div>
+	 	</div ng-if={{$index%4 == 0}}>
+	 </ion-item>
+	</ion-content>
+</ion-view>
