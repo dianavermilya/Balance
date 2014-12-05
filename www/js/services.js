@@ -15,7 +15,7 @@ angular.module('starter.services', [])
     { id: 6, name: 'lean chicken breast' },
     { id: 7, name: 'Peanut butter clif bar' },
     { id: 8, name: 'Vanilla Protein Shake' },
-    { id: 9, name: 'Tofu' },
+    { id: 9, name: 'Tofu', price: 5.89 },
     { id: 10, name: 'Muscle-Man Choco-Chug' },
     { id: 11, name: 'Power Powder' },
     { id: 12, name: 'Mocho-Man Munchy Bar' }
