@@ -1,0 +1,11 @@
+<!--Waiting on services to actually work
+Just displays a list of search results-->
+<ion-view title="Search Results">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="item in searchResults" type="item-text-wrap" href="#/tab/item/{{item.id}}">
+        {{item.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
