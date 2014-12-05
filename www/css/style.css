@@ -1,1 +1,82 @@
 /* Empty. Add your own CSS if you like */
+
+/* css for detail view */
+span.uline{
+  text-decoration: underline;
+}
+
+span.bold{
+  font-weight: bold;
+}
+
+span.price{
+  font-weight: bold;
+  font-size:18px;
+  position:relative;
+  top: 3px;
+}
+
+div.detail-image {
+  width:40%;
+  float: left;
+}
+
+div.item-options {
+  width: 60%;
+  text-align: center;
+  padding-top: 5px;
+  padding:5px;
+}
+
+div.item-title{
+  font-size: 24px;
+  width: 100%;  
+}
+
+div.price{
+  padding-top: 5px;
+  float:left;
+  width: 50%;
+}
+
+div.add{
+  padding-top: 5px;
+  float:left;
+  width: 50%
+}
+
+img.detail-image {
+  width:100%;
+}
+
+button.add {
+    /*display:block;*/
+    width:50px;
+    height:50px;
+    line-height:25px;
+    border-radius: 25px;
+    border: 2px solid #888888;
+    color:#888888;
+    text-align:center;
+    text-decoration:none;
+    background: #ffffff;
+    box-shadow: 0 0 3px gray;
+    font-size:24px;
+    font-weight:bold;
+}
+button.add:active {
+    /*display:block;*/
+    border: 2px solid #ffffff;
+    color:#ffffff;
+    text-align:center;
+    text-decoration:none;
+    background: #888888;
+    box-shadow: 0 0 3px gray;
+    font-weight:bold;
+}
+
+span.button-text{
+  position:relative;
+  top: -3px;
+  left: -7px;
+}
