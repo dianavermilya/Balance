@@ -15,7 +15,7 @@ angular.module('starter.services', [])
     { id: 6, name: 'lean chicken breast' },
     { id: 7, name: 'Peanut butter clif bar' },
     { id: 8, name: 'Vanilla Protein Shake' },
-    { id: 9, name: 'Tofu' },
+    { id: 9, name: 'Tofu', price: 5.89 },
     { id: 10, name: 'Muscle-Man Choco-Chug' },
     { id: 11, name: 'Power Powder' },
     { id: 12, name: 'Mocho-Man Munchy Bar' }
@@ -87,41 +87,51 @@ angular.module('starter.services', [])
 
   var tree = {
     fruits: {
+      id: "fruits",
       name: "Fruits",
       children: {}
     },
     veggies: {
+      id: "veggies",
       name: "Veggies",
       children: {}
     },
     grains: {
+      id: "grains",
       name: "Grains",
       children: {}
     },
     proteins: {
+      id: "proteins",
       name: "Proteins",
       children: {
         eggsAndDairy: {
+          id: "eggsAndDairy",
           name: "Eggs and Dairy",
           children: {}
         },
         poultry: {
+          id: "poultry",
           name: "Poultry",
           children: {}
         },
         redMeat: {
+          id: "redMeat",
           name: "Red Meat",
           children: {}
         },
         seafood: {
+          id: 'seafood',
           name: "Seafood",
           children: {}
         },
         nutAndSeed: {
+          id: 'nutAndSeed',
           name: "Nut and Seed",
           children: {}
         },
         supplement: {
+          id: 'supplement',
           name: "Supplement",
           children: {},
           items: [10,11,12]
@@ -129,10 +139,12 @@ angular.module('starter.services', [])
       }
     },
     dairy: {
+      id: 'dairy',
       name: "Dairy",
       children: {}
     },
     desserts: {
+      id: 'desserts',
       name: "Desserts",
       children: {}
     }

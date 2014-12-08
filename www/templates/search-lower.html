@@ -1,0 +1,11 @@
+<ion-view title="Search-Lower">
+  <ion-content class="padding">
+    <h1>Search-Lower</h1>
+    <h1> {{group}} </h1>
+    <ion-list>
+      <ion-item ng-repeat="item in selectGroceryItems" type="item-text-wrap" href="#/tab/search/">
+        {{item.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

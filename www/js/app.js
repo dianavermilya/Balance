@@ -66,13 +66,30 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-
     .state('tab.search', {
       url: '/search',
       views: {
         'tab-search': {
           templateUrl: 'templates/tab-search.html',
           controller: 'SearchCtrl'
+        }
+      }
+    })
+    .state('tab.search-mid', {
+      url: '/search/:group',
+      views: {
+        'tab-search': {
+          templateUrl: 'templates/search-mid.html',
+          controller: 'MidSearchCtrl'
+        }
+      }
+    })    
+    .state('tab.search-lower', {
+      url: '/search/:group/:subGroup',
+      views: {
+        'tab-search': {
+          templateUrl: 'templates/search-lower.html',
+          controller: 'LowerSearchCtrl'
         }
       }
     });
