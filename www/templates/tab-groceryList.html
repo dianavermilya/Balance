@@ -1,12 +1,15 @@
 <ion-view title="Grocery List">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="item in groceryList" type="item-text-wrap" href="#/tab/item/{{item.id}}">
-        {{item.name}}
+      <ion-checkbox ng-repeat="item in groceryList" type="item-text-wrap" href="#/tab/item/{{item.id}}">
+		{{item.name}}
         <button class="button button-small" style="float:right">+</button>
         <!--Add the text field with # in here-->
+		<div style="height:30px;border:1px solid;padding-right:10px;padding-left:10px;padding-top:3px;padding-bottom:20px;float:right">
+		1
+		</div>
         <button class="button button-small" style="float:right">-</button>
-      </ion-item>
+      </ion-checkbox>
     </ion-list>
   </ion-content>
 </ion-view>
