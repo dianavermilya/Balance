@@ -21,8 +21,16 @@ angular.module('starter.controllers', [])
   $scope.groceryList = groceryList;
 })
 
-.controller('ItemDetailCtrl', function($scope, $stateParams, GroceryItems) {
+.controller('ItemDetailCtrl', function($scope, $stateParams, GroceryItems, GroceryList) {
   $scope.item = GroceryItems.get($stateParams.itemId);
+
+  $scope.addToList = function() {
+    var list = GroceryList.get("list");
+    if (list.indexOf('Sam') === -1) {
+      list.push($scope.item);
+    }
+    GroceryList.save("list", list);
+  }
 })
 
 .controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints) {
