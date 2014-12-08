@@ -1,6 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('PreferencesCtrl', function($scope) {
+.controller('PreferencesCtrl', function($scope, Constraints) {
+	var constraintsList = Constraints.all();
+	$scope.constraintsList = constraintsList;
 })
 
 .controller('GroceryListCtrl', function($scope, GroceryList, GroceryItems) {
