@@ -1,9 +1,16 @@
 <ion-view title="Preferences">
   <ion-content class="padding">
     <h1>Preferences</h1>
-     <ion-list>
-      <ion-item ng-repeat="con in constraintsList" type="item-text-wrap">
-        {{con.name}}
+    <ion-list>
+      <ion-item ng-repeat="con in constraintsList" class="item item-toggle" type="item-text-wrap">
+      	{{con.name}}        
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-checked="{{con.selected}}" ng-click="updateConstraint(con.id)">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+        {{con.selected}}
       </ion-item>
     </ion-list>
   </ion-content>
