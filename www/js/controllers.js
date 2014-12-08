@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('GroceryListCtrl', function($scope, GroceryList, GroceryItems) {
-  var groceryListIndexes = GroceryList.all();
+  var groceryListIndexes = GroceryList.get("list");
   var groceryItems = GroceryItems.all();
   var groceryList = [];
   for (var i=0;i<groceryListIndexes.length; i++){
@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
       list.push($scope.item);
     }
     GroceryList.save("list", list);
-  }
+  };
 })
 
 .controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints) {

@@ -47,7 +47,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-
     .state('tab.groceryList', {
       url: '/groceryList',
       views: {
@@ -57,21 +56,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.item-detail', {
-      url: '/item/:itemId',
-      views: {
-        'tab-groceryList': {
-          templateUrl: 'templates/item-detail.html',
-          controller: 'ItemDetailCtrl'
-        }
-      }
-    })
     .state('tab.search', {
       url: '/search',
       views: {
         'tab-search': {
           templateUrl: 'templates/tab-search.html',
           controller: 'SearchCtrl'
+        }
+      }
+    })
+    .state('tab.search-detail', {
+      url: '/search/item/:itemId',
+      views: {
+        'tab-search': {
+          templateUrl: 'templates/search-detail.html',
+          controller: 'ItemDetailCtrl'
         }
       }
     })

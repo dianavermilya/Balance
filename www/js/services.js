@@ -27,7 +27,6 @@ angular.module('starter.services', [])
       return groceryItems;
     },
     get: function(itemId) {
-      // Simple index lookup
       return groceryItems[itemId];
     }
   }
@@ -35,11 +34,17 @@ angular.module('starter.services', [])
 
 .factory('GroceryList', function() {
 
-  var groceryList = [0,1,3,6,9];
+  var groceryList = {list: [0,1,3,6,9]};
 
   return {
     all: function() {
       return groceryList;
+    },
+    get: function(itemId) {
+      return groceryList[itemId];
+    },
+    save: function(key, value) {
+      groceryList[key] = value;
     }
   }
 })
