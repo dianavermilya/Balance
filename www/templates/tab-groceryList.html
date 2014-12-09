@@ -10,15 +10,19 @@
 	
     <ion-list>
       <ion-item ng-repeat="item in groceryList" type="item-text-wrap" href="#/tab/search/item/{{item.id}}">
-		<label class="checkbox" style="float:left">
+		<label class="checkbox" checked="yes" style="float:left">
 		  <input type="checkbox">
 		</label>
+
+
+
+		
 		{{item.name}}
 		
         <button class="button button-small" style="float:right">+</button>
         <!--Add the text field with # in here-->
 		<div style="height:30px;border:1px solid;padding-right:10px;padding-left:10px;padding-top:3px;padding-bottom:20px;float:right">
-		1
+		{{item.quantity}}
 		</div>
         <button class="button button-small" style="float:right">-</button>
 		

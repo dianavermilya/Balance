@@ -1,22 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('PreferencesCtrl', function($scope, Constraints) {
-	var constraintsList = Constraints.all();
-	$scope.constraintsList = constraintsList;
-  $scope.updateConstraint = function (key) {
-    var constraint = Constraints.get(key);
-    constraint.selected = !constraint.selected;
-    Constraints.save(key, constraint);
-    $scope.constraintsList[key] = constraint;
-  };
-})
-
 .controller('GroceryListCtrl', function($scope, GroceryList, GroceryItems, Constraints, $ionicPopover) {
-  var groceryListIndexes = GroceryList.get("list");
+  var groceryListObjects = GroceryList.get("list");
   var groceryItems = GroceryItems.all();
   var groceryList = [];
-  for (var i=0;i<groceryListIndexes.length; i++){
-  	groceryList.push(groceryItems[groceryListIndexes[i]]);
+  var groceryItem;
+  for (var i=0;i<groceryListObjects.length; i++){
+    groceryItem = groceryItems[groceryListObjects[i].id];
+    groceryItem.quantity = groceryListObjects[i].quantity;
+    groceryItem.checked = groceryListObjects[i].checked;
+  	groceryList.push(groceryItem);
   };
   $scope.groceryList = groceryList;
 
