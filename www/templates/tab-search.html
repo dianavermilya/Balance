@@ -1,9 +1,14 @@
 <ion-view title="Search">
   <ion-content class="padding">
     <h1>Search</h1>
-    <input type="text" name="search" placeholder="search" style="border: 1px solid black">
+    <input type="text" ng-model="searchText" name="search" placeholder="search" style="border: 1px solid black">
     <ion-list>
-      <ion-item ng-repeat="group in foodGroupTree" type="item-text-wrap" href="#/tab/search/{{group.id}}">
+      <!--Want to display groups if no search text
+      	if search text, display results from filtering for that-->
+      <ion-item ng-if="searchText" ng-repeat="item in groceryItems | filter:searchText">
+      	{{item.name}}
+      </ion-item>
+      <ion-item ng-if="!searchText" ng-repeat="group in foodGroupTree" type="item-text-wrap" href="#/tab/search/{{group.id}}">
         {{group.name}}
       </ion-item>
     </ion-list>

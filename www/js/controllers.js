@@ -61,9 +61,10 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints) {
+.controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
 	$scope.foodGroupTree = FoodGroupTree.all();
 	$scope.nutritionTree = NutritionTree.all();
+	$scope.groceryItems = GroceryItems.all();
 })
 
 .controller('MidSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints) {
