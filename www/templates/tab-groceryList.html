@@ -1,22 +1,21 @@
 <ion-view title="Grocery List">
   <ion-content>
   <div class="list-options">
-    <div class="price">
+    <div class="list-ops-item">
+      <button ng-click="openPopover($event)">
+  		  <img src="/img/sliders.png"/>
+  	  </button>
+    </div>
+    <div class="list-ops-item">
       <br>apprx price</br> 
         <span class="price">${{totalPrice}}</span>
     </div>
-    <div class="breakdown">
+    <div class="list-ops-item">
       <a href="#/tab/listBalance">
         <img src="../img/bar-chart.jpg" width="60px">
       </a>
     </div>
   </div>
-  	<button ng-click="openPopover($event)">
-  		Preferences button
-  		<img src="/img/sliders.png"/>
-  	</button>
-	<img src="/img/add_an_item.png"/>
-	<br>
 	<a href="">Home</a> <b>></b>
     <ion-list>
       <ion-item ng-repeat="item in groceryList" type="item-text-wrap" href="#/tab/search/item/{{item.id}}">
