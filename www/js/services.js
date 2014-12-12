@@ -6,19 +6,20 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var groceryItems = [
-    { id: 0, name: '1 dozen eggs' , price:2 , ingredients: 'chicken eggs'},
-    { id: 1, name: '1 gal 2% milk', price:3.75},
-    { id: 2, name: '4 lbs potatoes' },
-    { id: 3, name: '1 qt yogurt' , price:5},
-    { id: 4, name: '1 pt blueberries' },
-    { id: 5, name: 'ribeye steak' },
-    { id: 6, name: 'lean chicken breast', price: 6 },
-    { id: 7, name: 'Peanut butter clif bar' },
-    { id: 8, name: 'Vanilla Protein Shake' },
-    { id: 9, name: 'Tofu', price: 6, ingredients: "Water, Organic Whole Soybeans, Calcium Sulfate, Tricalcium Phosphate, Nigari (Sea Water Extract), Vitamin B6, Riboflavin (Vitamin B2), Vitamin D2, Vitamin B12." },
-    { id: 10, name: 'Muscle-Man Choco-Chug' },
-    { id: 11, name: 'Power Powder' },
-    { id: 12, name: 'Mocho-Man Munchy Bar' }
+    { id: 0,  name: '1 dozen eggs',           price: 5.89, constraintsViolated: []},
+    { id: 1,  name: '1 gal 2% milk',          price: 5.89, constraintsViolated: ["noDairy"]},
+    { id: 2,  name: '4 lbs potatoes',         price: 5.89, constraintsViolated: []},
+    { id: 3,  name: '1 qt yogurt',            price: 5.89, constraintsViolated: ["noDairy"]},
+    { id: 4,  name: '1 pt blueberries',       price: 5.89, constraintsViolated: []},
+    { id: 5,  name: 'ribeye steak',           price: 5.89, constraintsViolated: ["noRedMeat"]},
+    { id: 6,  name: 'lean chicken breast',    price: 5.89, constraintsViolated: []},
+    { id: 7,  name: 'Peanut butter clif bar', price: 5.89, constraintsViolated: ["lowSugar", "noNuts"]},
+    { id: 8,  name: 'Vanilla Protein Shake',  price: 5.89, constraintsViolated: ["noDairy"]},
+    { id: 9,  name: 'Tofu',                   price: 5.89, constraintsViolated: []},
+    { id: 10, name: 'Muscle-Man Choco-Chug',  price: 5.89, constraintsViolated: ["lowSugar", "noDairy"]},
+    { id: 11, name: 'Power Powder',           price: 5.89, constraintsViolated: []},
+    { id: 12, name: 'Mocho-Man Munchy Bar',   price: 5.89, constraintsViolated: ["noGluten"]},
+    { id: 13, name: '1 box of Crab Cakes',    price: 5.89, constraintsViolated: ["noGluten", "noFish"]}
   ];
 
   return {
@@ -26,7 +27,6 @@ angular.module('starter.services', [])
       return groceryItems;
     },
     get: function(itemId) {
-      // Simple index lookup
       return groceryItems[itemId];
     }
   }
@@ -34,11 +34,23 @@ angular.module('starter.services', [])
 
 .factory('GroceryList', function() {
 
-  var groceryList = [0,1,3,6,9];
+  var groceryList = {list: [
+    { id:0, checked: "false", quantity:1},
+    { id:1, checked: "true", quantity:3},
+    { id:3, checked: "false", quantity:1},
+    { id:6, checked: "false", quantity:1},
+    { id:9, checked: "false", quantity:1},
+  ]};
 
   return {
     all: function() {
       return groceryList;
+    },
+    get: function(itemId) {
+      return groceryList[itemId];
+    },
+    save: function(key, value) {
+      groceryList[key] = value;
     }
   }
 })
@@ -46,26 +58,32 @@ angular.module('starter.services', [])
 .factory('Constraints', function() {
   var constraints = {
     lowSugar: {
+      id: "lowSugar",
       name: "Low Sugar",
       selected: false
     },
     noGluten: {
+      id: "noGluten",
       name: "No Gluten",
       selected: false
     },
-    noRedMeet: {
+    noRedMeat: {
+      id: "noRedMeat",
       name: "No Red Meat",
       selected: false
     },
     noDairy: {
+      id: "noDairy",
       name: "No Dairy",
       selected: false
     },
     noNuts: {
+      id: "noNuts",
       name: "No Nuts",
       selected: false
     },
     noFish: {
+      id: "noFish",
       name: "No Fish",
       selected: false
     }
@@ -77,7 +95,11 @@ angular.module('starter.services', [])
     },
     get: function(key) {
       return constraints[key];
+    },
+    save: function(key, value) {
+      constraints[key] = value;
     }
+
   }
 
 
