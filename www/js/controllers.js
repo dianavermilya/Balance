@@ -12,11 +12,24 @@ angular.module('starter.controllers', [])
   for (var i=0;i<groceryListIndexes.length; i++){
   	groceryList.push(groceryItems[groceryListIndexes[i]]);
   };
+  
+  var totalPrice = 0;
+  for (var i=0; i<groceryList.length; i++){
+    totalPrice += groceryList[i].price;
+    console.log(groceryList[i].price);
+  }
+  $scope.totalPrice = totalPrice;
   $scope.groceryList = groceryList;
 })
 
 .controller('ItemDetailCtrl', function($scope, $stateParams, GroceryItems) {
   $scope.item = GroceryItems.get($stateParams.itemId);
+})
+
+.controller('BalanceCtrl', function($scope, $stateParams) {
+  //$scope.item = GroceryItems.get($stateParams.itemId);
+  $scope.title = "FOOD";
+  console.log("hello??")
 })
 
 .controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints) {

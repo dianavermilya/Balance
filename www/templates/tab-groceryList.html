@@ -1,5 +1,16 @@
 <ion-view title="Grocery List">
   <ion-content>
+  <div class="list-options">
+    <div class="price">
+      <br>apprx price</br> 
+        <span class="price">${{totalPrice}}</span>
+    </div>
+    <div class="breakdown">
+      <a href="#/tab/listBalance">
+        <img src="../img/bar-chart.jpg" width="60px">
+      </a>
+    </div>
+  </div>
     <ion-list>
       <ion-item ng-repeat="item in groceryList" type="item-text-wrap" href="#/tab/item/{{item.id}}">
         {{item.name}}

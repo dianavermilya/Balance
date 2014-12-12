@@ -57,6 +57,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('tab.listBalance', {
+      url: '/listBalance',
+      views: {
+        'tab-groceryList': {
+          templateUrl: 'templates/list-balance.html',
+          controller: 'BalanceCtrl'
+        }
+      }
+    })
     .state('tab.item-detail', {
       url: '/item/:itemId',
       views: {

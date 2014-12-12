@@ -6,16 +6,16 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var groceryItems = [
-    { id: 0, name: '1 dozen eggs' },
-    { id: 1, name: '1 gal 2% milk' },
+    { id: 0, name: '1 dozen eggs' , price:2 , ingredients: 'chicken eggs'},
+    { id: 1, name: '1 gal 2% milk', price:3.75},
     { id: 2, name: '4 lbs potatoes' },
-    { id: 3, name: '1 qt yogurt' },
+    { id: 3, name: '1 qt yogurt' , price:5},
     { id: 4, name: '1 pt blueberries' },
     { id: 5, name: 'ribeye steak' },
-    { id: 6, name: 'lean chicken breast' },
+    { id: 6, name: 'lean chicken breast', price: 6 },
     { id: 7, name: 'Peanut butter clif bar' },
     { id: 8, name: 'Vanilla Protein Shake' },
-    { id: 9, name: 'Tofu', price: 5.89, ingredients: "Water, Organic Whole Soybeans, Calcium Sulfate, Tricalcium Phosphate, Nigari (Sea Water Extract), Vitamin B6, Riboflavin (Vitamin B2), Vitamin D2, Vitamin B12." },
+    { id: 9, name: 'Tofu', price: 6, ingredients: "Water, Organic Whole Soybeans, Calcium Sulfate, Tricalcium Phosphate, Nigari (Sea Water Extract), Vitamin B6, Riboflavin (Vitamin B2), Vitamin D2, Vitamin B12." },
     { id: 10, name: 'Muscle-Man Choco-Chug' },
     { id: 11, name: 'Power Powder' },
     { id: 12, name: 'Mocho-Man Munchy Bar' }

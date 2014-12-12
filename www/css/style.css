@@ -39,6 +39,18 @@ div.price{
   width: 50%;
 }
 
+div.list-options{
+  height: 80px;
+  width: 100%;
+  text-align: center;
+}
+
+div.breakdown{
+  width:50%;
+  padding-top: 5px;
+  float:right;
+}
+
 div.add{
   padding-top: 5px;
   float:left;
