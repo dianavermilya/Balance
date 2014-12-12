@@ -20,12 +20,12 @@ div.detail-image {
   width:40%;
   float: left;
 }
-
-div.item-options {
+div.item-operations {
   width: 60%;
   text-align: center;
   padding-top: 5px;
   padding:5px;
+  float:right;
 }
 
 div.item-title{
@@ -47,6 +47,9 @@ div.add{
 
 img.detail-image {
   width:100%;
+}
+div.ingerdients{
+  float:left;
 }
 
 button.add {

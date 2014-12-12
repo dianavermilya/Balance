@@ -2,7 +2,8 @@
   <ion-content has-header="true" padding="false">
     <div class="detail-image">
       <img src="../img/{{item.name + '.png'}}" class="detail-image"/>
-    <div class="item-options">
+    </div>
+    <div class="item-operations">
       <div class="item-title">
         <span class="uline">
           <span class="bold">
@@ -20,6 +21,12 @@
           <span class="button-text">+</span>
         </button>
       </div>
+    </div>
+    <div class="ingredients">
+    <span class="bold">
+      <h4>Ingredients:</h4>
+    </span>
+      {{item.ingredients}}
     </div>
     <div class="nutrition-info">
       <img src="../img/nutrition_info.gif">
