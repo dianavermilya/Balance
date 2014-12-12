@@ -83,3 +83,8 @@ span.button-text{
   top: -3px;
   left: -7px;
 }
+
+.popover {
+
+  height: 380px;
+}

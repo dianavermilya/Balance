@@ -1,7 +1,9 @@
-<ion-view title="Preferences">
-  <ion-content class="padding">
-    <h1>Preferences</h1>
-    <ion-list>
+<ion-popover-view class="popover">
+    <ion-header-bar>
+      <h1 class="title">Dietary Preferences</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
       <ion-item ng-repeat="con in constraintsList" class="item item-toggle" type="item-text-wrap">
       	{{con.name}}        
         <label class="toggle toggle-positive">
@@ -12,6 +14,6 @@
         </label>
         {{con.selected}}
       </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-view>
+      </ion-list>
+    </ion-content>
+</ion-popover-view>
