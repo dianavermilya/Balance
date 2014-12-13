@@ -2,8 +2,10 @@
   <ion-content class="padding">
     <h1>Search-Mid</h1>
     <h1> {{groupId}} </h1>
+    <input type="text" ng-model="searchText" name="search" placeholder="search" style="border: 1px solid black">
     <ion-list>
-      <ion-item ng-repeat="subGroup in subFoodGroupTree" type="item-text-wrap" href="#/tab/search/{{groupId}}/{{subGroup.id}}">
+      <!--So how do I figure out what things are in what subgroups?-->
+      <ion-item ng-if="!searchText" ng-repeat="subGroup in subFoodGroupTree" type="item-text-wrap" href="#/tab/search/{{groupId}}/{{subGroup.id}}">
         {{subGroup.name}}
       </ion-item>
     </ion-list>

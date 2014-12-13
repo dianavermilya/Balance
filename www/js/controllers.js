@@ -112,5 +112,6 @@ angular.module('starter.controllers', [])
       selectGroceryItems.push(groceryItem);
     }
   };
+  $scope.groupID = $stateParams.group;
   $scope.selectGroceryItems = selectGroceryItems;
 });
