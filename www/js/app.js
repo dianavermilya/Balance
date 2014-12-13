@@ -60,7 +60,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/item/:itemId',
       views: {
         'tab-groceryList': {
-          templateUrl: 'templates/item-detail.html',
+          templateUrl: 'templates/search-detail.html',
           controller: 'ItemDetailCtrl'
         }
       }
