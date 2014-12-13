@@ -5,12 +5,16 @@ angular.module('starter.controllers', [])
   var groceryItems = GroceryItems.all();
   var groceryList = [];
   var groceryItem;
-  for (var i=0;i<groceryListObjects.length; i++){
-    groceryItem = groceryItems[groceryListObjects[i].id];
-    groceryItem.quantity = groceryListObjects[i].quantity;
-    groceryItem.checked = groceryListObjects[i].checked;
-  	groceryList.push(groceryItem);
-  };
+  var itemId;
+  for (var key in groceryListObjects) {
+    if (groceryListObjects.hasOwnProperty(key)) {
+
+      groceryItem = groceryItems[key];
+      groceryItem.quantity = groceryListObjects[key].quantity;
+      groceryItem.checked = groceryListObjects[key].checked;
+      groceryList.push(groceryItem);
+    }
+  }
   
   var totalPrice = 0;
   for (var i=0; i<groceryList.length; i++){
@@ -57,12 +61,14 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ItemDetailCtrl', function($scope, $stateParams, GroceryItems, GroceryList) {
-  $scope.item = GroceryItems.get($stateParams.itemId);
+  var item = GroceryItems.get($stateParams.itemId);
+  $scope.item = item;
 
   $scope.addToList = function() {
     var list = GroceryList.get("list");
-    if (list.indexOf('Sam') === -1) {
-      list.push($scope.item);
+    if (!(item.id in list)) {
+      item.quantity = 1;
+      list[item.id] = item;
     }
     GroceryList.save("list", list);
   };
