@@ -130,27 +130,32 @@ angular.module('starter.services', [])
         eggsAndDairy: {
           id: "eggsAndDairy",
           name: "Eggs and Dairy",
-          children: {}
+          children: {},
+          items: []
         },
         poultry: {
           id: "poultry",
           name: "Poultry",
-          children: {}
+          children: {},
+          items: []
         },
         redMeat: {
           id: "redMeat",
           name: "Red Meat",
-          children: {}
+          children: {},
+          items: []
         },
         seafood: {
           id: 'seafood',
           name: "Seafood",
-          children: {}
+          children: {},
+          items: []
         },
         nutAndSeed: {
           id: 'nutAndSeed',
           name: "Nut and Seed",
-          children: {}
+          children: {},
+          items: []
         },
         supplement: {
           id: 'supplement',

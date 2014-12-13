@@ -79,9 +79,26 @@ angular.module('starter.controllers', [])
 	$scope.groceryItems = GroceryItems.all();
 })
 
-.controller('MidSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints) {
+.controller('MidSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
+  var items = [];
+
   $scope.groupId = $stateParams.group;
-  $scope.subFoodGroupTree = FoodGroupTree.all()[$scope.groupId].children;
+
+  var groupTree = FoodGroupTree.all()[$scope.groupId].children;
+  var groupList = Object.getOwnPropertyNames(groupTree);
+  var tempList = [];
+  var groceryItems = GroceryItems.all();
+
+  $scope.subFoodGroupTree = groupTree;
+
+  for (var i=0; i<groupList.length; i++) {
+  	tempList = groupTree[groupList[i]].items;
+  	for (var j=0; j<tempList.length; j++) {
+  		items.push(groceryItems[tempList[j]]);
+  	}
+  }
+
+  $scope.selectItems = items;
 })
 
 .controller('LowerSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
