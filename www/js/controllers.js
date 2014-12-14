@@ -69,6 +69,8 @@ angular.module('starter.controllers', [])
     if (!(item.id in list)) {
       item.quantity = 1;
       list[item.id] = item;
+    } else {
+      list[item.id].quantity++;
     }
     GroceryList.save("list", list);
   };
