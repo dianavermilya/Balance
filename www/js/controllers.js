@@ -136,5 +136,6 @@ angular.module('starter.controllers', [])
     }
   };
   $scope.groupID = $stateParams.group;
+  $scope.subGroupId = subGroupId;
   $scope.selectGroceryItems = selectGroceryItems;
 });
