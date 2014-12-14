@@ -5,7 +5,7 @@
     <ion-list>
       <!--Want to display groups if no search text
       	if search text, display results from filtering for that-->
-      <ion-item ng-if="searchText" ng-repeat="item in groceryItems | filter:searchText">
+      <ion-item ng-if="searchText" ng-repeat="item in groceryItems | filter:searchText" href="#/tab/search/item/{{item.id}}">
       	{{item.name}}
       </ion-item>
       <ion-item ng-if="!searchText" ng-repeat="group in foodGroupTree" type="item-text-wrap" href="#/tab/search/{{group.id}}">

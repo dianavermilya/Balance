@@ -4,7 +4,7 @@
     <h1> {{groupID}} </h1>
      <input type="text" ng-model="searchText" name="search" placeholder="search" style="border: 1px solid black">
     <ion-list>
-      <ion-item ng-repeat="item in selectGroceryItems | filter:searchText" type="item-text-wrap" href="#/tab/search/item/{{item.id}}">
+      <ion-item ng-repeat="item in selectGroceryItems | filter:searchText" type="item-text-wrap" href="#/tab/search/item/{{item.id}}" href="#/tab/search/item/{{item.id}}">
         {{item.name}}
       </ion-item>
     </ion-list>
