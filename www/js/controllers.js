@@ -90,8 +90,21 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('BalanceCtrl', function($scope, $stateParams, GroceryItems) {
-
+.controller('BalanceCtrl', function($scope, $stateParams, GroceryItems, GroceryList) {
+  
+  var groceryListObjects = GroceryList.get("list");
+  var groceryItems = GroceryItems.all();
+  var groceryList = [];
+  var groceryItem;
+  var itemId;
+  groceryListObjects.forEach(function (itemMetaData) {
+    groceryItem = groceryItems[itemMetaData.id]
+    console.log(groceryItem, itemMetaData)
+    groceryItem.quantity = itemMetaData.quantity;
+    groceryItem.checked = itemMetaData.checked;
+    groceryList.push(groceryItem);
+  });
+    
   google.load("visualization", "1", {packages:["corechart"]});
 
   drawProteinChart();
@@ -108,10 +121,8 @@ angular.module('starter.controllers', [])
   function drawProteinChart() {
     var data = google.visualization.arrayToDataTable([
       ['Nutrition THingy', 'Grams'],
-      ['Fat',     11],
-      ['Protien',      2],
-      ['Carbohydrates',  5],
-      ['Sugar', 2]
+      ['Protein',     11],
+      ['Hidden',      2]
     ]);
 
     var options = {
@@ -121,7 +132,7 @@ angular.module('starter.controllers', [])
       pieStartAngle: 135,
       tooltip: { trigger: 'none' },
       slices: {
-        0: { color: 'yellow' },
+        0: { color: 'blue' },
         1: { color: 'transparent' }
       }
     };
