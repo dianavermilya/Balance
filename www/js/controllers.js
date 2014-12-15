@@ -98,7 +98,6 @@ angular.module('starter.controllers', [])
 
   //$scope.item = GroceryItems.get($stateParams.itemId);
   $scope.title = "FOOD";
-  console.log("hello??")
 })
 .controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
 	$scope.foodGroupTree = FoodGroupTree.all();
@@ -159,4 +158,35 @@ angular.module('starter.controllers', [])
   $scope.groupID = $stateParams.group;
   $scope.subGroupId = subGroupId;
   $scope.selectGroceryItems = selectGroceryItems;
+})
+
+
+.directive('pieChart', function(){
+  var dir = function(){
+      google.load("visualization", "1", {packages:["corechart"]});
+      console.log("directive");
+      drawChart();
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  5],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+        console.log("hello???");
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+  }
+  console.log("directive");
+  return dir;
 });
