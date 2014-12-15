@@ -72,9 +72,6 @@ angular.module('starter.controllers', [])
     $scope.groceryList = list;
     GroceryList.save("list", list);
   };
-
-
-
 })
 
 .controller('ItemDetailCtrl', function($scope, $stateParams, GroceryItems, GroceryList) {
@@ -93,7 +90,12 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('BalanceCtrl', function($scope, $stateParams) {
+.controller('BalanceCtrl', function($scope, $stateParams, GroceryList, GroceryItems) {
+
+  
+
+
+
   //$scope.item = GroceryItems.get($stateParams.itemId);
   $scope.title = "FOOD";
   console.log("hello??")
