@@ -94,9 +94,46 @@ angular.module('starter.controllers', [])
 })
 
 .controller('BalanceCtrl', function($scope, $stateParams) {
-  //$scope.item = GroceryItems.get($stateParams.itemId);
-  $scope.title = "FOOD";
+
+  google.load("visualization", "1", {packages:["corechart"]});
+
+  drawProteinChart();
+  $scope.num_days = 1;
+  $scope.num_people = 1;
+
+  daily_values = {
+    protein: 50,
+    sugar: 30,
+    carbs: 125,
+    fat: 60
+  }
+  //google.setOnLoadCallback(drawChart);
+  function drawProteinChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Nutrition THingy', 'Grams'],
+      ['Fat',     11],
+      ['Protien',      2],
+      ['Carbohydrates',  5],
+      ['Sugar', 2]
+    ]);
+
+    var options = {
+      title: 'Protein',
+      legend: 'none',
+      pieSliceText: 'none',
+      pieStartAngle: 135,
+      tooltip: { trigger: 'none' },
+      slices: {
+        0: { color: 'yellow' },
+        1: { color: 'transparent' }
+      }
+    };
+    var chart = new google.visualization.PieChart(document.getElementById("piechart0"));
+   chart.draw(data, options);
+  }
 })
+
+
 .controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
 	$scope.foodGroupTree = FoodGroupTree.all();
 	$scope.nutritionTree = NutritionTree.all();
@@ -159,32 +196,38 @@ angular.module('starter.controllers', [])
 })
 
 
-.directive('pieChart', function(){
-  var dir = function(){
+/*.directive('pieChart', function(){
+  var dir = function($scope, element, attrs){
+      plot_id = attrs.id;
       google.load("visualization", "1", {packages:["corechart"]});
-      console.log("directive");
+
       drawChart();
+      console.log("days: ", $scope);
       google.setOnLoadCallback(drawChart);
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  5],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Nutrition THingy', 'Grams'],
+          ['Fat',     11],
+          ['Protien',      2],
+          ['Carbohydrates',  5],
+          ['Sugar', 2]
         ]);
 
         var options = {
-          title: 'My Daily Activities'
+          legend: 'none',
+          pieSliceText: 'none',
+          pieStartAngle: 135,
+          tooltip: { trigger: 'none' },
+          slices: {
+            0: { color: 'yellow' },
+            1: { color: 'transparent' }
+          }
         };
-        console.log("hello???");
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.PieChart(document.getElementById("piechart0"));
 
         chart.draw(data, options);
       }
   }
-  console.log("directive");
   return dir;
-});
+});*/

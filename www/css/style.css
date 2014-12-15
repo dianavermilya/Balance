@@ -71,6 +71,10 @@ div.ingerdients{
   float:left;
 }
 
+div.pie-couple{
+	display: inline-block;	
+}
+
 button.add {
     /*display:block;*/
     width:50px;
