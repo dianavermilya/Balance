@@ -1,30 +1,39 @@
 <ion-view title="Grocery List">
   <ion-content>
-  	<button ng-click="openPopover($event)">
-  		Preferences button
-  		<img src="/img/sliders.png"/>
-  	</button>
-	<img src="/img/add_an_item.png"/>
-	<br>
-	<a href="">Home</a> <b>></b>
-	
+  <a href="../#/tab/search"><button class="button button-block">Add an Item</button></a>
+  <br/>
+  <a href="">Home</a> <b>></b>
+  <div class="list-options">
+    <div class="list-ops-item">
+      <button ng-click="openPopover($event)">
+        <img src="{{button}}"/>
+      </button>
+    </div>
+    <div class="list-ops-item">
+      <br>apprx price</br> 
+        <span class="price">${{totalPrice}}</span>
+    </div>
+    <div class="list-ops-item">
+      <a href="#/tab/listBalance">
+        <img src="../img/bar-chart.jpg" width="60px">
+      </a>
+    </div>
+  </div>
     <ion-list>
-      <ion-item ng-repeat="item in groceryList" type="item-text-wrap" href="#/tab/search/item/{{item.id}}">
-		<label class="checkbox" checked="yes" style="float:left">
-		  <input type="checkbox">
-		</label>
-
-		{{item.name}}
-		
-        <button class="button button-small" style="float:right">+</button>
-        <!--Add the text field with # in here-->
-		<div style="height:30px;border:1px solid;padding-right:10px;padding-left:10px;padding-top:3px;padding-bottom:20px;float:right">
-		{{item.quantity}}
-		</div>
-        <button class="button button-small" style="float:right">-</button>
-		
+      <ion-item ng-repeat="item in groceryList" type="item-text-wrap">
+        <div href="#/tab/search/item/{{item.id}}">
+          <label class="checkbox" checked="yes" style="float:left">
+            <input type="checkbox">
+          </label>
+          {{item.name}} 
+        </div>
+        <button class="button button-small" style="float:right" ng-click="addToList($index)">+</button>
+        <div style="height:30px;border:1px solid;padding-right:10px;padding-left:10px;padding-top:3px;padding-bottom:20px;float:right">
+        {{item.quantity}}
+        </div>
+        <button class="button button-small" style="float:right" ng-click="removeFromList($index)">-</button>
       </ion-item>
-    </ion-list>
+    <ion-list>
   </ion-content>
 </ion-view>
 
