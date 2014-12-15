@@ -8,6 +8,7 @@
       	{{item.name}}
       </ion-item>
       <ion-item ng-if="!searchText" ng-repeat="group in foodGroupTree" type="item-text-wrap" href="#/tab/search/{{group.id}}">
+      	<img src="../img/{{group.name}}.jpg"><br>
         {{group.name}}
       </ion-item>
     </ion-list>
