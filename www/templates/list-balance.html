@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <td>
-        <select name="num_people" ng-model="num_people">
+        <select name="num_people" ng-model="num.people" ng-selected="calculate_pie_values()">
         <option value="1" selected>1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -25,7 +25,7 @@
         </select>
       </td>
       <td>  
-        <select name="num_days" ng-model="num_days">
+        <select name="num_days" ng-model="num.days" ng-selected="calculate_pie_values()">
         <option value="1" selected>1</option>
         <option value="2">2</option>
         <option value="3">3</option>
