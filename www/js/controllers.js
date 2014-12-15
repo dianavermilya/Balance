@@ -72,9 +72,6 @@ angular.module('starter.controllers', [])
     $scope.groceryList = list;
     GroceryList.save("list", list);
   };
-
-
-
 })
 
 .controller('ItemDetailCtrl', function($scope, $stateParams, GroceryItems, GroceryList) {
@@ -93,6 +90,7 @@ angular.module('starter.controllers', [])
   };
 })
 
+<<<<<<< HEAD
 .controller('BalanceCtrl', function($scope, $stateParams) {
 
   google.load("visualization", "1", {packages:["corechart"]});
