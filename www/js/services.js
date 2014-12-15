@@ -34,13 +34,14 @@ angular.module('starter.services', [])
 
 .factory('GroceryList', function() {
 
-  var groceryList = {list: {
-    0 : { id:0, checked: "false", quantity:1},
-    1 : { id:1, checked: "true", quantity:3},
-    3 : { id:3, checked: "false", quantity:1},
-    6 : { id:6, checked: "false", quantity:1},
-    9 : { id:9, checked: "false", quantity:1},
-  }};
+  var groceryList = {list: [
+    { id:0, checked: "false", quantity:1},
+    { id:1, checked: "true", quantity:3},
+    { id:3, checked: "false", quantity:1},
+    { id:6, checked: "false", quantity:1},
+    { id:9, checked: "false", quantity:1}
+  ]};
+
 
   return {
     all: function() {

@@ -6,15 +6,13 @@ angular.module('starter.controllers', [])
   var groceryList = [];
   var groceryItem;
   var itemId;
-  for (var key in groceryListObjects) {
-    if (groceryListObjects.hasOwnProperty(key)) {
-
-      groceryItem = groceryItems[key];
-      groceryItem.quantity = groceryListObjects[key].quantity;
-      groceryItem.checked = groceryListObjects[key].checked;
-      groceryList.push(groceryItem);
-    }
-  }
+  groceryListObjects.forEach(function (itemMetaData) {
+    groceryItem = groceryItems[itemMetaData.id]
+    console.log(groceryItem, itemMetaData)
+    groceryItem.quantity = itemMetaData.quantity;
+    groceryItem.checked = itemMetaData.checked;
+    groceryList.push(groceryItem);
+  });
   
   var totalPrice = 0;
   for (var i=0; i<groceryList.length; i++){
@@ -57,6 +55,25 @@ angular.module('starter.controllers', [])
     Constraints.save(key, constraint);
     $scope.constraintsList[key] = constraint;
   };
+
+  $scope.addToList = function(index) {
+    $scope.groceryList[index].quantity++;
+    GroceryList.save("list", $scope.groceryList);
+  };
+  $scope.removeFromList = function(index) {
+    list = $scope.groceryList;
+    var item = list[index];
+
+    if (item.quantity > 1) {
+      list[index].quantity--;
+    } else {
+      list.splice(index,1);
+    }
+    $scope.groceryList = list;
+    GroceryList.save("list", list);
+  };
+
+
 
 })
 
