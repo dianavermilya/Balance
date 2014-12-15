@@ -280,6 +280,7 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
   $scope.groupId = $stateParams.group;
 
   var groupTree = FoodGroupTree.all()[$scope.groupId].children;
+  $scope.name = FoodGroupTree.all()[$scope.groupId].name;
   var groupList = Object.getOwnPropertyNames(groupTree);
   var tempList = [];
   var groceryItems = GroceryItems.all();
@@ -301,6 +302,7 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
   var groceryItems = GroceryItems.all();
   var groupId = $stateParams.group;
   var subGroupId = $stateParams.subGroup;
+  $scope.name = FoodGroupTree.all()[groupId].children[subGroupId].name;
   var selectGroceryIndexes = FoodGroupTree.all()[groupId].children[subGroupId].items;
 
   var selectGroceryItems = [];
