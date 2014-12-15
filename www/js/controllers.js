@@ -1,5 +1,42 @@
-angular.module('starter.controllers', [])
-
+function constraintsPopover ($ionicPopover,$scope,Constraints) {
+	$ionicPopover.fromTemplateUrl('templates/preferences-popover.html', {scope: $scope,})
+					.then(function(popover) {$scope.popover = popover;});
+	$scope.openPopover = function($event) {
+		console.log($event);
+		$scope.popover.show($event);
+	};
+	$scope.closePopover = function() {
+		$scope.popover.hide();
+	};
+	//Cleanup the popover when we're done with it!
+	$scope.$on('$destroy', function() {
+		$scope.popover.remove();
+	});
+	// Execute action on hide popover
+	$scope.$on('popover.hidden', function() {
+	// Execute action
+	});
+	// Execute action on remove popover
+	$scope.$on('popover.removed', function() {
+	// Execute action
+	});
+	
+	var constraintsList = Constraints.all();
+	$scope.constraintsList = constraintsList;
+	var checkConstraintsList = function () {
+		for (i in $scope.constraintsList) 
+			if ($scope.constraintsList[i].selected) return true;
+		return false;
+	}
+	$scope.button = checkConstraintsList() ? "/img/sliders_on.png" : "/img/sliders.png";
+	$scope.updateConstraint = function (key) {
+		var constraint = Constraints.get(key);
+		constraint.selected = !constraint.selected;
+		Constraints.save(key, constraint);
+		$scope.constraintsList[key] = constraint;
+		$scope.button = checkConstraintsList() ? "/img/sliders_on.png" : "/img/sliders.png";
+	};
+}angular.module('starter.controllers', [])
 .controller('GroceryListCtrl', function($scope, GroceryList, GroceryItems, Constraints, $ionicPopover) {
   var groceryListObjects = GroceryList.get("list");
   var groceryItems = GroceryItems.all();
@@ -21,39 +58,7 @@ angular.module('starter.controllers', [])
   $scope.totalPrice = totalPrice;
   $scope.groceryList = groceryList;
 
-  $ionicPopover.fromTemplateUrl('templates/preferences-popover.html', {
-    scope: $scope,
-  }).then(function(popover) {
-    $scope.popover = popover;
-  });
-  $scope.openPopover = function($event) {
-    console.log($event);
-    $scope.popover.show($event);
-  };
-  $scope.closePopover = function() {
-    $scope.popover.hide();
-  };
-  //Cleanup the popover when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.popover.remove();
-  });
-  // Execute action on hide popover
-  $scope.$on('popover.hidden', function() {
-    // Execute action
-  });
-  // Execute action on remove popover
-  $scope.$on('popover.removed', function() {
-    // Execute action
-  });
-
-  var constraintsList = Constraints.all();
-  $scope.constraintsList = constraintsList;
-  $scope.updateConstraint = function (key) {
-    var constraint = Constraints.get(key);
-    constraint.selected = !constraint.selected;
-    Constraints.save(key, constraint);
-    $scope.constraintsList[key] = constraint;
-  };
+  constraintsPopover($ionicPopover, $scope, Constraints);
 
   $scope.addToList = function(index) {
     $scope.groceryList[index].quantity++;
@@ -246,14 +251,14 @@ angular.module('starter.controllers', [])
 
 })
 
-
-.controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
+.controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints, GroceryItems, $ionicPopover) {
+	constraintsPopover ($ionicPopover,$scope,Constraints);
 	$scope.foodGroupTree = FoodGroupTree.all();
 	$scope.nutritionTree = NutritionTree.all();
 	$scope.groceryItems = GroceryItems.all();
 })
 
-.controller('MidSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
+.controller('MidSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints, GroceryItems, $ionicPopover) {
   var items = [];
 
   $scope.groupId = $stateParams.group;
@@ -273,9 +278,10 @@ angular.module('starter.controllers', [])
   }
 
   $scope.selectItems = items;
+  constraintsPopover($ionicPopover, $scope, Constraints);
 })
 
-.controller('LowerSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints, GroceryItems) {
+.controller('LowerSearchCtrl', function($scope, $stateParams, FoodGroupTree, NutritionTree, Constraints, GroceryItems, $ionicPopover) {
   var groceryItems = GroceryItems.all();
   var groupId = $stateParams.group;
   var subGroupId = $stateParams.subGroup;
@@ -306,8 +312,8 @@ angular.module('starter.controllers', [])
   $scope.groupID = $stateParams.group;
   $scope.subGroupId = subGroupId;
   $scope.selectGroceryItems = selectGroceryItems;
+  constraintsPopover($ionicPopover, $scope, Constraints);
 })
-
 
 /*.directive('pieChart', function(){
   var dir = function($scope, element, attrs){
