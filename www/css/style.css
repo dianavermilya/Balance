@@ -72,7 +72,23 @@ div.ingerdients{
 }
 
 div.pie-couple{
-	display: inline-block;	
+	display: inline-block
+  width: 199%;
+}
+
+.piechart_left {
+  float: left;
+  width: 50%;
+  
+}
+
+.piechart_right {
+  float: right;
+  width: 50%;  
+}
+
+.list-balance-text {
+  font-size: 24;
 }
 
 button.add {
@@ -107,7 +123,44 @@ span.button-text{
   left: -7px;
 }
 
+.search-bar {
+  line-height: 50px;
+}
+
+.pref-button {
+  display: block;
+  float: left;
+  height: 45px;
+  margin-top: 10px;
+
+}
+
+input.searchbox {
+  display: block;
+  float: right;
+  width: 80%; 
+  height: 45px;
+  margin-top: 10px;
+  margin-right: 5px;
+  font-size: 14pt;
+  padding-left: 10px;
+  margin-left:  5px;
+}
+
+
+.breadcrumbs {
+  padding-top: 10px;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.searchlist {
+  width: 80px;
+}
+
 .popover {
 
   height: 380px;
 }
+
+

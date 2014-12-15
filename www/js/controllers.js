@@ -160,6 +160,10 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
 
     var options = {
       title: 'Protein',
+      titleTextStyle: {
+        fontSize: 16,
+        fontName: "Helvetica"
+      },
       legend: 'none',
       pieSliceText: 'none',
       pieStartAngle: 135,
@@ -182,9 +186,13 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
 
     var options = {
       title: 'Sugar',
+      titleTextStyle: {
+        fontSize: 16,
+        fontName: "Helvetica"
+      },
       legend: 'none',
       pieSliceText: 'none',
-      pieStartAngle: 135,
+      pieStartAngle: 16,
       tooltip: { trigger: 'none' },
       slices: {
         0: { color: '241757' },
@@ -204,6 +212,10 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
 
     var options = {
       title: 'Carbohydrates',
+      titleTextStyle: {
+        fontSize: 16,
+        fontName: "Helvetica"
+      },
       legend: 'none',
       pieSliceText: 'none',
       pieStartAngle: 135,
@@ -229,6 +241,10 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
 
     var options = {
       title: 'Total Fat',
+      titleTextStyle: {
+        fontSize: 16,
+        fontName: "Helvetica"
+      },
       legend: 'none',
       pieSliceText: 'none',
       pieStartAngle: 135,

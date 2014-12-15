@@ -1,6 +1,5 @@
-<ion-view title="Search-Lower">
+<ion-view title="Search">
   <ion-content class="padding">
-    <h1>Search-Lower</h1>
     <h1> {{subGroupId}} </h1>
 	<button ng-click="openPopover($event)">
   		<img src="{{button}}"/>
@@ -8,7 +7,7 @@
     <a href="../#/tab/groceryList">Home</a> <b>></b><a href="../#/tab/search">Search</a>><a href="../#/tab/search/{{groupID}}">{{groupID}}</a>><a href="../#/tab/search/{{groupID}}/{{subGroupId}}">{{subGroupId}}</a>
      <input type="text" ng-model="searchText" name="search" placeholder="search" style="border: 1px solid black">
     
-    <ion-list>
+    <ion-list class="searchlist">
       <ion-item ng-repeat="item in selectGroceryItems | filter:searchText" type="item-text-wrap" href="#/tab/search/item/{{item.id}}" href="#/tab/search/item/{{item.id}}">
         {{item.name}}
       </ion-item>

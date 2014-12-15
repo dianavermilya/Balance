@@ -1,11 +1,26 @@
 <ion-view title="Search">
   <ion-content class="padding">
-    <h1>Search</h1>
-	<button ng-click="openPopover($event)">
-  		<img src="{{button}}"/>
-  	</button>
-    <a href="../#/tab/groceryList">Home</a> <b>></b><a href="../#/tab/search">Search</a>
-    <input type="text" ng-model="searchText" name="search" placeholder="search" style="border: 1px solid black">
+
+
+    <div class="search-bar">
+
+      <input class="searchbox" type="text" ng-model="searchText" name="search" placeholder="search" style="border: 1px solid black">
+        <label>
+          <button class="pref-button" ng-click="openPopover($event)">
+            <img src="{{button}}"/>
+          </button>
+        </label>
+      </input>
+    </div>
+
+    <div class="breadcrumbs">
+      <a href="../#/tab/groceryList">Home</a> <b>></b><a href="../#/tab/search">
+        Search
+      </a>
+    <div>
+
+
+
     <ion-list>
       <ion-item ng-if="searchText" ng-repeat="item in groceryItems | filter:searchText" href="#/tab/search/item/{{item.id}}">
       	{{item.name}}

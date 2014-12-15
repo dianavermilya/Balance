@@ -1,48 +1,47 @@
 <ion-view title="Nutritional Breakdown">
   <ion-content has-header="true" padding="false">
   <br/>
-  <div class="">
-  <table>
-    <tr>
-      <td>
+
+  <div class="list">
+    <label class="item item-input item-select">
+      <div class="input-label">
         People
-      </td>
-      <td>
+      </div>
+      <select ng-model="num.people" ng-selected="calculate_pie_values()">
+        <option>1</option>
+        <option selected>2</option>
+        <option>3</option>
+        <option>4</option>        
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+      </select>
+    </label>
+
+    <label class="item item-input item-select">
+      <div class="input-label">
         Days
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <select name="num_people" ng-model="num.people" ng-selected="calculate_pie_values()">
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        </select>
-      </td>
-      <td>  
-        <select name="num_days" ng-model="num.days" ng-selected="calculate_pie_values()">
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        </select>
-      </td>
-  </table>
+      </div>
+      <select ng-model="num.days" ng-selected="calculate_pie_values()">
+        <option>1</option>
+        <option>2</option>
+        <option selected>3</option>
+        <option>4</option>        
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+      </select>
+    </label>
   </div>
-  <div class="pie-couple">
-  <div id="piechart0" style="width: 150px; height: 150px;" pie-chart></div>
-  <div id="piechart1" style="width: 150px; height: 150px;" pie-chart></div>
-  </div>
-  <div class="pie-couple">
-  <div id="piechart2" style="width: 150px; height: 150px;" pie-chart></div>
-  <div id="piechart3" style="width: 150px; height: 150px;" pie-chart></div>
+  <div class="piecharts">
+    <div class="pie-couple">
+      <div id="piechart0" class="piechart_left" pie-chart></div>
+      <div id="piechart1" class="piechart_right" pie-chart></div>
+    </div>
+    <div class="pie-couple">
+      <div id="piechart2" class="piechart_left" pie-chart></div>
+      <div id="piechart3" class="piechart_right" pie-chart></div>
+    </div>
   </div>
   </ion-content>
 </ion-view>
