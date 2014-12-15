@@ -90,8 +90,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-<<<<<<< HEAD
-.controller('BalanceCtrl', function($scope, $stateParams) {
+.controller('BalanceCtrl', function($scope, $stateParams, GroceryItems) {
 
   google.load("visualization", "1", {packages:["corechart"]});
 
