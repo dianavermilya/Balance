@@ -43,15 +43,13 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
   var groceryList = [];
   var groceryItem;
   var itemId;
-  for (var key in groceryListObjects) {
-    if (groceryListObjects.hasOwnProperty(key)) {
-
-      groceryItem = groceryItems[key];
-      groceryItem.quantity = groceryListObjects[key].quantity;
-      groceryItem.checked = groceryListObjects[key].checked;
-      groceryList.push(groceryItem);
-    }
-  }
+  groceryListObjects.forEach(function (itemMetaData) {
+    groceryItem = groceryItems[itemMetaData.id]
+    console.log(groceryItem, itemMetaData)
+    groceryItem.quantity = itemMetaData.quantity;
+    groceryItem.checked = itemMetaData.checked;
+    groceryList.push(groceryItem);
+  });
   
   var totalPrice = 0;
   for (var i=0; i<groceryList.length; i++){
@@ -63,6 +61,22 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
 
   constraintsPopover($ionicPopover, $scope, Constraints);
 
+  $scope.addToList = function(index) {
+    $scope.groceryList[index].quantity++;
+    GroceryList.save("list", $scope.groceryList);
+  };
+  $scope.removeFromList = function(index) {
+    list = $scope.groceryList;
+    var item = list[index];
+
+    if (item.quantity > 1) {
+      list[index].quantity--;
+    } else {
+      list.splice(index,1);
+    }
+    $scope.groceryList = list;
+    GroceryList.save("list", list);
+  };
 })
 
 .controller('ItemDetailCtrl', function($scope, $stateParams, GroceryItems, GroceryList) {
@@ -81,11 +95,57 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
   };
 })
 
-.controller('BalanceCtrl', function($scope, $stateParams) {
-  //$scope.item = GroceryItems.get($stateParams.itemId);
-  $scope.title = "FOOD";
-  console.log("hello??")
+.controller('BalanceCtrl', function($scope, $stateParams, GroceryItems, GroceryList) {
+  
+  var groceryListObjects = GroceryList.get("list");
+  var groceryItems = GroceryItems.all();
+  var groceryList = [];
+  var groceryItem;
+  var itemId;
+  groceryListObjects.forEach(function (itemMetaData) {
+    groceryItem = groceryItems[itemMetaData.id]
+    console.log(groceryItem, itemMetaData)
+    groceryItem.quantity = itemMetaData.quantity;
+    groceryItem.checked = itemMetaData.checked;
+    groceryList.push(groceryItem);
+  });
+    
+  google.load("visualization", "1", {packages:["corechart"]});
+
+  drawProteinChart();
+  $scope.num_days = 1;
+  $scope.num_people = 1;
+
+  daily_values = {
+    protein: 50,
+    sugar: 30,
+    carbs: 125,
+    fat: 60
+  }
+  //google.setOnLoadCallback(drawChart);
+  function drawProteinChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Nutrition THingy', 'Grams'],
+      ['Protein',     11],
+      ['Hidden',      2]
+    ]);
+
+    var options = {
+      title: 'Protein',
+      legend: 'none',
+      pieSliceText: 'none',
+      pieStartAngle: 135,
+      tooltip: { trigger: 'none' },
+      slices: {
+        0: { color: 'blue' },
+        1: { color: 'transparent' }
+      }
+    };
+    var chart = new google.visualization.PieChart(document.getElementById("piechart0"));
+   chart.draw(data, options);
+  }
 })
+
 .controller('SearchCtrl', function($scope, FoodGroupTree, NutritionTree, Constraints, GroceryItems, $ionicPopover) {
 	constraintsPopover ($ionicPopover,$scope,Constraints);
 	$scope.foodGroupTree = FoodGroupTree.all();
@@ -148,4 +208,40 @@ function constraintsPopover ($ionicPopover,$scope,Constraints) {
   $scope.subGroupId = subGroupId;
   $scope.selectGroceryItems = selectGroceryItems;
   constraintsPopover($ionicPopover, $scope, Constraints);
-});
+})
+
+/*.directive('pieChart', function(){
+  var dir = function($scope, element, attrs){
+      plot_id = attrs.id;
+      google.load("visualization", "1", {packages:["corechart"]});
+
+      drawChart();
+      console.log("days: ", $scope);
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Nutrition THingy', 'Grams'],
+          ['Fat',     11],
+          ['Protien',      2],
+          ['Carbohydrates',  5],
+          ['Sugar', 2]
+        ]);
+
+        var options = {
+          legend: 'none',
+          pieSliceText: 'none',
+          pieStartAngle: 135,
+          tooltip: { trigger: 'none' },
+          slices: {
+            0: { color: 'yellow' },
+            1: { color: 'transparent' }
+          }
+        };
+        var chart = new google.visualization.PieChart(document.getElementById("piechart0"));
+
+        chart.draw(data, options);
+      }
+  }
+  return dir;
+});*/

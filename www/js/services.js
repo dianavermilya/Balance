@@ -6,20 +6,159 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var groceryItems = [
-    { id: 0,  name: '1 dozen eggs',           price: 5.89, constraintsViolated: []},
-    { id: 1,  name: '1 gal 2% milk',          price: 5.89, constraintsViolated: ["noDairy"]},
-    { id: 2,  name: '4 lbs potatoes',         price: 5.89, constraintsViolated: []},
-    { id: 3,  name: '1 qt yogurt',            price: 5.89, constraintsViolated: ["noDairy"]},
-    { id: 4,  name: '1 pt blueberries',       price: 5.89, constraintsViolated: []},
-    { id: 5,  name: 'ribeye steak',           price: 5.89, constraintsViolated: ["noRedMeat"]},
-    { id: 6,  name: 'lean chicken breast',    price: 5.89, constraintsViolated: []},
-    { id: 7,  name: 'Peanut butter clif bar', price: 5.89, constraintsViolated: ["lowSugar", "noNuts"]},
-    { id: 8,  name: 'Vanilla Protein Shake',  price: 5.89, constraintsViolated: ["noDairy"]},
-    { id: 9,  name: 'Tofu',                   price: 5.89, constraintsViolated: []},
-    { id: 10, name: 'Muscle-Man Choco-Chug',  price: 5.89, constraintsViolated: ["lowSugar", "noDairy"]},
-    { id: 11, name: 'Power Powder',           price: 5.89, constraintsViolated: []},
-    { id: 12, name: 'Mocho-Man Munchy Bar',   price: 5.89, constraintsViolated: ["noGluten"]},
-    { id: 13, name: '1 box of Crab Cakes',    price: 5.89, constraintsViolated: ["noGluten", "noFish"]}
+    { 
+      id: 0,  
+      name: '1 dozen eggs',           
+      price: 5.89, 
+      constraintsViolated: [],
+      nutritionalData: {
+        protein: 75,
+        fat: 80,
+        carbohydrate: 12,
+        sugar: 12
+      }
+    }, { 
+      id: 1,  
+      name: '1 gal 2% milk',          
+      price: 5.89, 
+      constraintsViolated: ["noDairy"],
+      nutritionalData: {
+        protein: 128,
+        fat: 128,
+        carbohydrate: 192,
+        sugar: 176
+      }
+    }, { 
+      id: 2,  
+      name: '10 potatoes',         
+      price: 5.89, 
+      constraintsViolated: [],
+      nutritionalData: {
+        protein: 37,
+        fat: 2,
+        carbohydrate: 310,
+        sugar: 20
+      }
+    }, { 
+      id: 3,  
+      name: '1 qt yogurt',            
+      price: 5.89, 
+      constraintsViolated: ["noDairy"],
+      nutritionalData: {
+        protein: 36,
+        fat: 8,
+        carbohydrate: 116,
+        sugar: 116
+      }
+    }, { 
+      id: 4,  
+      name: '1 pt blueberries',       
+      price: 5.89, 
+      constraintsViolated: [],
+      nutritionalData: {
+        protein: 3,
+        fat: 1.3,
+        carbohydrate: 58,
+        sugar: 40
+      }
+    }, { 
+      id: 5,  
+      name: 'ribeye steak',           
+      price: 5.89, 
+      constraintsViolated: ["noRedMeat"],
+      nutritionalData: {
+        protein: 79,
+        fat: 100,
+        carbohydrate: 0,
+        sugar: 0
+      }
+    }, {
+      id: 6,  
+      name: 'lean chicken breast',    
+      price: 5.89, 
+      constraintsViolated: [],
+      nutritionalData: {
+        protein: 43,
+        fat: 5,
+        carbohydrate: 0,
+        sugar: 0
+      }     
+    }, { 
+      id: 7,  
+      name: 'Peanut butter clif bar',
+      price: 5.89,
+      constraintsViolated: ["lowSugar", "noNuts"],
+      nutritionalData: {
+        protein: 11,
+        fat: 6,
+        carbohydrate: 41,
+        sugar: 21
+      }
+    }, {
+      id: 8,  
+      name: 'Vanilla Protein Shake',  
+      price: 5.89, 
+      constraintsViolated: ["noDairy"],
+      nutritionalData: {
+        protein: 21,
+        fat: 2,
+        carbohydrate: 4,
+        sugar: 2
+      }
+    }, { 
+      id: 9,  
+      name: 'Ferra\'s Extra Firm Tofu',                   
+      price: 5.89, 
+      constraintsViolated: [],
+      nutritionalData: {
+        protein: 10,
+        fat: 5,
+        carbohydrate: 2,
+        sugar: 1
+      }
+    }, {
+      id: 10, 
+      name: 'Muscle-Man Choco-Chug',  
+      price: 5.89, 
+      constraintsViolated: ["lowSugar", "noDairy"],
+      nutritionalData: {
+        protein: 21,
+        fat: 2,
+        carbohydrate: 4,
+        sugar: 2
+      }
+    }, {
+      id: 11, 
+      name: 'Power Powder',           
+      price: 5.89, 
+      constraintsViolated: [],
+      nutritionalData: {
+        protein: 21,
+        fat: 2,
+        carbohydrate: 4,
+        sugar: 2
+      }
+    }, { id: 12,
+      name: 'Mocho-Man Munchy Bar',
+      price: 5.89, 
+      constraintsViolated: ["noGluten"],
+      nutritionalData: {
+        protein: 11,
+        fat: 6,
+        carbohydrate: 41,
+        sugar: 21
+      }
+    }, { 
+      id: 13, name: '1 box of Crab Cakes',    
+      price: 5.89, 
+      constraintsViolated: ["noGluten", "noFish"],
+      nutritionalData: {
+        protein: 11,
+        fat: 6,
+        carbohydrate: 41,
+        sugar: 21
+      }    
+    }
   ];
 
   return {
@@ -34,13 +173,14 @@ angular.module('starter.services', [])
 
 .factory('GroceryList', function() {
 
-  var groceryList = {list: {
-    0 : { id:0, checked: "false", quantity:1},
-    1 : { id:1, checked: "true", quantity:3},
-    3 : { id:3, checked: "false", quantity:1},
-    6 : { id:6, checked: "false", quantity:1},
-    9 : { id:9, checked: "false", quantity:1},
-  }};
+  var groceryList = {list: [
+    { id:0, checked: "false", quantity:1},
+    { id:1, checked: "true", quantity:3},
+    { id:3, checked: "false", quantity:1},
+    { id:6, checked: "false", quantity:1},
+    { id:9, checked: "false", quantity:1}
+  ]};
+
 
   return {
     all: function() {

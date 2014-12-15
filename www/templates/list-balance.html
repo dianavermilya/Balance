@@ -2,7 +2,48 @@
   <ion-content has-header="true" padding="false">
   <img src="../img/add_an_item.png"/>
   <br/>
-  <a href="">Home</a> <b>></b><a href="">Nutritional Balance</a>
-  <img src="../img/pie3.png" width="100%"/>
+  <div class="">
+  <table>
+    <tr>
+      <td>
+        People
+      </td>
+      <td>
+        Days
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select name="num_people" ng-model="num_people">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        </select>
+      </td>
+      <td>  
+        <select name="num_days" ng-model="num_days">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        </select>
+      </td>
+  </table>
+  </div>
+  <div class="pie-couple">
+  <div id="piechart0" style="width: 150px; height: 150px;" pie-chart></div>
+  <div id="piechart1" style="width: 150px; height: 150px;" pie-chart></div>
+  </div>
+  <div class="pie-couple">
+  <div id="piechart2" style="width: 150px; height: 150px;" pie-chart></div>
+  <div id="piechart3" style="width: 150px; height: 150px;" pie-chart></div>
+  </div>
   </ion-content>
 </ion-view>
